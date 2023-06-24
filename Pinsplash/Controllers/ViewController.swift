@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     // MARK: - COMPONENTS
     
     private let pinsCollectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
+        let layout = UICollectionViewWaterfallLayout()
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .white
@@ -40,7 +40,7 @@ class ViewController: UIViewController {
         // TODO: fetch images
         
         // TODO: replace this
-        for i in 1...8 {
+        for i in 1...18 {
             images.append(UIImage(named: "totoro-\(i)")!)
         }
         pinsCollectionView.reloadData()
@@ -50,6 +50,8 @@ class ViewController: UIViewController {
     // MARK: - SETUP
     
     private func setup() {
+        view.backgroundColor = .white
+        
         setupSubviews()
         setupLayout()
         setupDelegates()
@@ -63,19 +65,21 @@ class ViewController: UIViewController {
         NSLayoutConstraint.activate([
             pinsCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             pinsCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            pinsCollectionView.topAnchor.constraint(equalTo: view.topAnchor),
+            pinsCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             pinsCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
     }
     
     private func setupDelegates() {
         pinsCollectionView.dataSource = self
-        pinsCollectionView.delegate = self
+        if let layout = pinsCollectionView.collectionViewLayout as? UICollectionViewWaterfallLayout {
+            layout.delegate = self
+        }
     }
 }
 
 
-extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension ViewController: UICollectionViewDataSource, UICollectionViewWaterallLayoutDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         images.count
@@ -87,10 +91,8 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let imageSize = images[indexPath.row].size
-        return CGSize(width: view.frame.size.width, height: imageSize.height * view.frame.size.width / imageSize.width)
+    func collectionView(_ collectionView: UICollectionView, heightForImageAtIndexPath indexPath: IndexPath) -> CGSize {
+        return images[indexPath.row].size
     }
-    
-    }
+}
 

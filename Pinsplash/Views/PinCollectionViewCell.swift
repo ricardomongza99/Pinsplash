@@ -15,15 +15,18 @@ class PinCollectionViewCell: UICollectionViewCell {
     var image: UIImage? {
         didSet {
             imageView.image = image
+            
         }
     }
     
     
     // MARK: - COMPONENTS
-    
+
     private let imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
+        imageView.layer.cornerRadius = 20
+        imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
