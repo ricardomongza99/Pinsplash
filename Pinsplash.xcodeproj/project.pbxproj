@@ -56,12 +56,36 @@
 			children = (
 				AA456F842A46AD440001EEDC /* AppDelegate.swift */,
 				AA456F862A46AD440001EEDC /* SceneDelegate.swift */,
-				AA456F882A46AD440001EEDC /* ViewController.swift */,
+				AA456F982A46AE270001EEDC /* Models */,
+				AA456F992A46AE2D0001EEDC /* Views */,
+				AA456F9A2A46AE380001EEDC /* Controllers */,
 				AA456F8D2A46AD440001EEDC /* Assets.xcassets */,
 				AA456F8F2A46AD440001EEDC /* LaunchScreen.storyboard */,
 				AA456F922A46AD440001EEDC /* Info.plist */,
 			);
 			path = Pinsplash;
+			sourceTree = "<group>";
+		};
+		AA456F982A46AE270001EEDC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		AA456F992A46AE2D0001EEDC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		AA456F9A2A46AE380001EEDC /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				AA456F882A46AD440001EEDC /* ViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
