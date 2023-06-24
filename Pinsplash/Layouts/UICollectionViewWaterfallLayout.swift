@@ -51,9 +51,7 @@ class UICollectionViewWaterfallLayout: UICollectionViewLayout {
             let imageSize = delegate?.collectionView(collectionView, heightForImageAtIndexPath: indexPath) ?? CGSize(width: 100, height: 100)
             let imageHeight = imageSize.height * columnWidth / imageSize.width
             let height = imageHeight + cellPadding * 2
-//            let height = cellPadding * 2 + imageHeight
             let frame = CGRect(x: xOffset[column], y: yOffset[column], width: columnWidth, height: height)
-//            let insetFrame = frame.insetBy(dx: cellPadding, dy: cellPadding)
             let insetFrame = frame.insetBy(dx: cellPadding, dy: cellPadding)
 
             
@@ -63,8 +61,12 @@ class UICollectionViewWaterfallLayout: UICollectionViewLayout {
             
             contentHeight = max(contentHeight, frame.maxY)
             yOffset[column] = yOffset[column] + height
-            
-            column = column < (numberOfColumns - 1) ? (column + 1) : 0
+                        
+            // If current column has the max height
+            if yOffset[column] >= contentHeight {
+                // Advance to next column
+                column = column < (numberOfColumns - 1) ? (column + 1) : 0
+            }
         }
     }
     
