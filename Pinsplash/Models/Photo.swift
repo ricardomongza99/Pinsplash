@@ -12,7 +12,7 @@ struct Photo: Codable {
     let id: String
     let width: Int
     let height: Int
-    let description: String
+    let description: String?
     let likes: Int
     let urls: URLs
     let user: User

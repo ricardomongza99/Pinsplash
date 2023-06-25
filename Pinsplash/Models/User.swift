@@ -14,8 +14,8 @@ struct User: Codable {
     let name: String
     let firstName: String
     let lastName: String?
-    let bio: String
-    let location: String
+    let bio: String?
+    let location: String?
     let totalLikes: Int
     let totalPhotos: Int
 }

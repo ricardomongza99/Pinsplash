@@ -29,6 +29,8 @@ class ViewController: UIViewController {
     
     private var images: [UIImage] = []
     
+    private var photos = TestData.photos
+    
     
     // MARK: - COMPONENTS
     
@@ -52,9 +54,9 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        decodePhotos()
 //        fetchUnsplashPhotos()
 //        fetchImages()
+        print(photos[0].urls.small)
     }
     
     
@@ -86,37 +88,6 @@ class ViewController: UIViewController {
         if let layout = pinsCollectionView.collectionViewLayout as? UICollectionViewWaterfallLayout {
             layout.delegate = self
         }
-    }
-    
-    func readJSONFromFile(filename: String) -> Data? {
-        guard let bundleURL = Bundle.main.url(forResource: filename, withExtension: "json") else {
-            print("JSON file not found in the main bundle.")
-            return nil
-        }
-        
-        do {
-            let data = try Data(contentsOf: bundleURL)
-            return data
-        } catch {
-            print("Error reading JSON file: \(error.localizedDescription)")
-        }
-        return nil
-    }
-    
-    private func decodePhotos() {
-        guard let jsonData = readJSONFromFile(filename: "mock2") else { return }
-        
-        let decoder = JSONDecoder()
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
-        
-        do {
-            let photo = try decoder.decode(Photo.self, from: jsonData)
-            print(photo.urls.full)
-        } catch {
-            print("Could not decode jsonData: \(error)")
-        }
-        
-        
     }
     
     // TODO: Replace
