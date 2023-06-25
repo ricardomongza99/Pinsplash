@@ -15,7 +15,7 @@ class UICollectionViewWaterfallLayout: UICollectionViewLayout {
     
     weak var delegate: UICollectionViewDelegateWaterallLayout?
     
-    private let numberOfColumns = 3
+    private let numberOfColumns = 2
     private let cellPadding: CGFloat = 6
     
     private var cachedAttributes: [UICollectionViewLayoutAttributes] = []
