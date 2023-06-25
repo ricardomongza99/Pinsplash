@@ -18,7 +18,7 @@ class UICollectionViewWaterfallLayout: UICollectionViewLayout {
     private let numberOfColumns = 2
     private let cellPadding: CGFloat = 6
     
-    private var cache: [UICollectionViewLayoutAttributes] = []
+    private var cachedAttributes: [UICollectionViewLayoutAttributes] = []
     
     private var contentHeight: CGFloat = 0
     
@@ -30,12 +30,13 @@ class UICollectionViewWaterfallLayout: UICollectionViewLayout {
         return collectionView.bounds.width - (insets.left + insets.right)
     }
     
-    override var collectionViewContentSize: CGSize {
-        return CGSize(width: contentWidth, height: contentHeight)
-    }
-    
     override func prepare() {
-        guard cache.isEmpty, let collectionView = collectionView else { return }
+        super.prepare()
+        
+        guard let collectionView = collectionView else { return }
+        
+        // Reset cache information
+        cachedAttributes.removeAll()
         
         let columnWidth = contentWidth / CGFloat(numberOfColumns)
         var xOffset: [CGFloat] = []
@@ -57,7 +58,7 @@ class UICollectionViewWaterfallLayout: UICollectionViewLayout {
             
             let attributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
             attributes.frame = insetFrame
-            cache.append(attributes)
+            cachedAttributes.append(attributes)
             
             contentHeight = max(contentHeight, frame.maxY)
             yOffset[column] = yOffset[column] + height
@@ -70,11 +71,15 @@ class UICollectionViewWaterfallLayout: UICollectionViewLayout {
         }
     }
     
+    override var collectionViewContentSize: CGSize {
+        return CGSize(width: contentWidth, height: contentHeight)
+    }
+    
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         var visibleLayoutAttributes: [UICollectionViewLayoutAttributes] = []
         
         // Loop though the cache and look for items in the rect
-        for attributes in cache {
+        for attributes in cachedAttributes {
             if attributes.frame.intersects(rect) {
                 visibleLayoutAttributes.append(attributes)
             }
@@ -84,7 +89,12 @@ class UICollectionViewWaterfallLayout: UICollectionViewLayout {
     }
     
     override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
-        return cache[indexPath.item]
+        return cachedAttributes[indexPath.item]
+    }
+    
+    override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
+        guard let collectionView = collectionView else { return false }
+        return !newBounds.size.equalTo(collectionView.bounds.size)
     }
     
 }
