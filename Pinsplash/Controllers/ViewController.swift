@@ -11,7 +11,7 @@ class ViewController: UIViewController {
     
     
     // MARK: - PROPERTIES
-    
+        
     private var imageUrls: [URL] = [URL(string: "https://i.pinimg.com/564x/55/ef/e9/55efe92c37077e07ca85d8234c7798cc.jpg")!,
                                     URL(string: "https://i.pinimg.com/564x/a1/20/15/a120156fa1843c8bbfba074a62c60511.jpg")!,
                                     URL(string: "https://i.pinimg.com/564x/25/5a/8b/255a8bcab3da16c62d3cbc1f119dbbcd.jpg")!,
@@ -52,8 +52,9 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        fetchImages()
+        decodePhotos()
+//        fetchUnsplashPhotos()
+//        fetchImages()
     }
     
     
@@ -85,6 +86,76 @@ class ViewController: UIViewController {
         if let layout = pinsCollectionView.collectionViewLayout as? UICollectionViewWaterfallLayout {
             layout.delegate = self
         }
+    }
+    
+    func readJSONFromFile(filename: String) -> Data? {
+        guard let bundleURL = Bundle.main.url(forResource: filename, withExtension: "json") else {
+            print("JSON file not found in the main bundle.")
+            return nil
+        }
+        
+        do {
+            let data = try Data(contentsOf: bundleURL)
+            return data
+        } catch {
+            print("Error reading JSON file: \(error.localizedDescription)")
+        }
+        return nil
+    }
+    
+    private func decodePhotos() {
+        guard let jsonData = readJSONFromFile(filename: "mock2") else { return }
+        
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        
+        do {
+            let photo = try decoder.decode(Photo.self, from: jsonData)
+            print(photo.urls.full)
+        } catch {
+            print("Could not decode jsonData: \(error)")
+        }
+        
+        
+    }
+    
+    // TODO: Replace
+    private func fetchUnsplashPhotos() {
+        let url = URL(string: "https://api.unsplash.com/photos")!
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.setValue("Client-ID RXx8DV_H7CsbVPxG_ohHkSkU4_dZaGv5s2PzZIROFfM", forHTTPHeaderField: "Authorization")
+        
+        let session = URLSession(configuration: .default)
+        
+        let task = session.dataTask(with: request) { data, response, error in
+            if let error = error {
+                print("Error with fetching images: \(error)")
+                return
+            }
+            
+            guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
+                print("Error with the response, unexpected status code")
+                return
+            }
+            
+            if let data = data {
+                let responseString = String(data: data, encoding: .utf8)
+                print(responseString!)
+                do {
+                    if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                        print(json)
+                    } else {
+                        print("Not")
+                    }
+                } catch {
+                    print("Error parsing JSON: \(error.localizedDescription)")
+                }
+            }
+        }
+        
+        task.resume()
     }
     
     // TODO: Replace with image cacheing
