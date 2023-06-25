@@ -103,7 +103,7 @@ class ViewController: UIViewController {
 }
 
 
-extension ViewController: UICollectionViewDataSource, UICollectionViewWaterallLayoutDelegate {
+extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateWaterallLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         images.count

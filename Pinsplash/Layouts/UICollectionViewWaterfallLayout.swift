@@ -7,15 +7,15 @@
 
 import UIKit
 
-protocol UICollectionViewWaterallLayoutDelegate: AnyObject {
+protocol UICollectionViewDelegateWaterallLayout: AnyObject {
     func collectionView( _ collectionView: UICollectionView, heightForImageAtIndexPath indexPath: IndexPath) -> CGSize
 }
 
 class UICollectionViewWaterfallLayout: UICollectionViewLayout {
     
-    weak var delegate: UICollectionViewWaterallLayoutDelegate?
+    weak var delegate: UICollectionViewDelegateWaterallLayout?
     
-    private let numberOfColumns = 2
+    private let numberOfColumns = 3
     private let cellPadding: CGFloat = 6
     
     private var cachedAttributes: [UICollectionViewLayoutAttributes] = []
