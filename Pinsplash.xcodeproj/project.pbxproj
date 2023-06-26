@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA42E21F2A4A25DC0059D9F8 /* PhotoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA42E21E2A4A25DC0059D9F8 /* PhotoService.swift */; };
 		AA456F852A46AD440001EEDC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA456F842A46AD440001EEDC /* AppDelegate.swift */; };
 		AA456F872A46AD440001EEDC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA456F862A46AD440001EEDC /* SceneDelegate.swift */; };
 		AA456F892A46AD440001EEDC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA456F882A46AD440001EEDC /* ViewController.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AA42E21E2A4A25DC0059D9F8 /* PhotoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoService.swift; sourceTree = "<group>"; };
 		AA456F812A46AD440001EEDC /* Pinsplash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pinsplash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA456F842A46AD440001EEDC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AA456F862A46AD440001EEDC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 		AA456FA42A4807510001EEDC /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				AA42E21E2A4A25DC0059D9F8 /* PhotoService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 				AA456F892A46AD440001EEDC /* ViewController.swift in Sources */,
 				AAC6A50B2A48D488009BC93C /* URLs.swift in Sources */,
 				AAC6A50D2A48D505009BC93C /* User.swift in Sources */,
+				AA42E21F2A4A25DC0059D9F8 /* PhotoService.swift in Sources */,
 				AAC6A51C2A493C81009BC93C /* UIImageView+Extensions.swift in Sources */,
 				AA456F852A46AD440001EEDC /* AppDelegate.swift in Sources */,
 				AA456F9F2A46C3760001EEDC /* UICollectionViewWaterfallLayout.swift in Sources */,

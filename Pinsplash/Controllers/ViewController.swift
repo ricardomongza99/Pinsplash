@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     // MARK: - PROPERTIES
     
     private var photos: [Photo] = []
+    private var photoService = PhotoService()
     
     
     // MARK: - COMPONENTS
@@ -37,7 +38,14 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        fetchUnsplashPhotos()
+        photoService.fetchPhotos { photos in
+            if let photos = photos {
+                DispatchQueue.main.async {
+                    self.photos = photos
+                    self.pinsCollectionView.reloadData()
+                }
+            }
+        }
     }
     
     
@@ -68,22 +76,6 @@ class ViewController: UIViewController {
         pinsCollectionView.dataSource = self
         if let layout = pinsCollectionView.collectionViewLayout as? UICollectionViewWaterfallLayout {
             layout.delegate = self
-        }
-    }
-    
-    // TODO: Replace
-    private func fetchUnsplashPhotos() {
-        let resource = PhotosResource()
-        let request = APIRequest(resource: resource)
-        request.execute { photos in
-            if let photos = photos {
-                DispatchQueue.main.async {
-                    self.photos = photos
-                    self.pinsCollectionView.reloadData()
-                }
-            } else {
-                print("Coundn't get photos")
-            }
         }
     }
 }

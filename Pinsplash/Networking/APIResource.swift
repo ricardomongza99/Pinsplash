@@ -29,11 +29,14 @@ extension APIResource {
 struct PhotosResource: APIResource {
     typealias ModelType = [Photo]
     
+    let page: Int
+    let perPage: Int
+    
     var methodPath: String {
         return "/photos"
     }
     
     var parameters: [String : String] {
-        return ["per_page": "30"]
+        return ["page": String(page), "per_page": String(perPage)]
     }
 }
