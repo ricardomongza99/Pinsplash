@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     
     // MARK: - PROPERTIES
     
-    private var photos = TestData.photos
+    private var photos: [Photo] = []
     
     
     // MARK: - COMPONENTS
@@ -37,7 +37,7 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-//        fetchUnsplashPhotos()
+        fetchUnsplashPhotos()
     }
     
     
@@ -77,7 +77,10 @@ class ViewController: UIViewController {
         let request = APIRequest(resource: resource)
         request.execute { photos in
             if let photos = photos {
-                print(photos[0].urls.full)
+                DispatchQueue.main.async {
+                    self.photos = photos
+                    self.pinsCollectionView.reloadData()
+                }
             } else {
                 print("Coundn't get photos")
             }

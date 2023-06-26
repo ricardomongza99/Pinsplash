@@ -13,16 +13,14 @@ import Foundation
 protocol APIResource {
     associatedtype ModelType: Decodable
     var methodPath: String { get }
-    var filter: String? { get }
+    var parameters: [String: String] { get }
 }
 
 extension APIResource {
     var url: URL {
         var components = URLComponents(string: "https://api.unsplash.com/photos")!
         components.path = methodPath
-        if let filter = filter {
-            components.queryItems?.append(URLQueryItem(name: "filter", value: filter))
-        }
+        components.queryItems = parameters.map{ URLQueryItem(name: $0.key, value: $0.value) }
         return components.url!
     }
 }
@@ -35,5 +33,7 @@ struct PhotosResource: APIResource {
         return "/photos"
     }
     
-    var filter: String?
+    var parameters: [String : String] {
+        return ["per_page": "30"]
+    }
 }
