@@ -54,9 +54,9 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-//        fetchUnsplashPhotos()
+        fetchUnsplashPhotos()
 //        fetchImages()
-        print(photos[0].urls.small)
+//        print(photos[0].urls.small)
     }
     
     
@@ -92,41 +92,15 @@ class ViewController: UIViewController {
     
     // TODO: Replace
     private func fetchUnsplashPhotos() {
-        let url = URL(string: "https://api.unsplash.com/photos")!
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = "GET"
-        request.setValue("Client-ID RXx8DV_H7CsbVPxG_ohHkSkU4_dZaGv5s2PzZIROFfM", forHTTPHeaderField: "Authorization")
-        
-        let session = URLSession(configuration: .default)
-        
-        let task = session.dataTask(with: request) { data, response, error in
-            if let error = error {
-                print("Error with fetching images: \(error)")
-                return
-            }
-            
-            guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
-                print("Error with the response, unexpected status code")
-                return
-            }
-            
-            if let data = data {
-                let responseString = String(data: data, encoding: .utf8)
-                print(responseString!)
-                do {
-                    if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                        print(json)
-                    } else {
-                        print("Not")
-                    }
-                } catch {
-                    print("Error parsing JSON: \(error.localizedDescription)")
-                }
+        let resource = PhotosResource()
+        let request = APIRequest(resource: resource)
+        request.execute { photos in
+            if let photos = photos {
+                print(photos[0].urls.full)
+            } else {
+                print("Coundn't get photos")
             }
         }
-        
-        task.resume()
     }
     
     // TODO: Replace with image cacheing
