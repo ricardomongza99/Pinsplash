@@ -12,9 +12,7 @@ class ViewController: UIViewController {
     
     // MARK: - PROPERTIES
     
-    
     private var photos = TestData.photos
-    private var images: [UIImage] = []
     
     
     // MARK: - COMPONENTS
@@ -40,7 +38,6 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 //        fetchUnsplashPhotos()
-        fetchImages()
     }
     
     
@@ -86,38 +83,23 @@ class ViewController: UIViewController {
             }
         }
     }
-    
-    // TODO: Replace with image cacheing
-    private func fetchImages() {
-        for photo in self.photos {
-            let request = ImageRequest(url: URL(string: photo.urls.small)!)
-            request.execute { image in
-                guard let image = image else { return }
-                self.images.append(image)
-                
-                DispatchQueue.main.async {
-                    self.pinsCollectionView.reloadData()
-                }
-            }
-        }
-    }
 }
 
 
 extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateWaterallLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        images.count
+        photos.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "pinCell", for: indexPath) as! PinCollectionViewCell
-        cell.image = images[indexPath.item]
+        cell.configure(with: photos[indexPath.item])
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, heightForImageAtIndexPath indexPath: IndexPath) -> CGSize {
-        return images[indexPath.item].size
+        return photos[indexPath.item].size
     }
 }
 

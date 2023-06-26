@@ -16,4 +16,8 @@ struct Photo: Codable {
     let likes: Int
     let urls: URLs
     let user: User
+    
+    var size: CGSize {
+        CGSize(width: self.width, height: self.height)
+    }
 }

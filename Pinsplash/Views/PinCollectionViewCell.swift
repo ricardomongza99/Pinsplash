@@ -10,16 +10,6 @@ import UIKit
 class PinCollectionViewCell: UICollectionViewCell {
     
     
-    // MARK: - PROPERTIES
-    
-    var image: UIImage? {
-        didSet {
-            imageView.image = image
-            
-        }
-    }
-    
-    
     // MARK: - COMPONENTS
 
     private let imageView: UIImageView = {
@@ -36,7 +26,7 @@ class PinCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+                
         contentView.addSubview(imageView)
         
         NSLayoutConstraint.activate([
@@ -49,5 +39,11 @@ class PinCollectionViewCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - SETUP
+    
+    func configure(with photo: Photo) {
+        imageView.load(urlString: photo.urls.small)
     }
 }
