@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		AA42E21F2A4A25DC0059D9F8 /* PhotoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA42E21E2A4A25DC0059D9F8 /* PhotoService.swift */; };
+		AA42E2212A4A2C720059D9F8 /* page1.json in Resources */ = {isa = PBXBuildFile; fileRef = AA42E2202A4A2C720059D9F8 /* page1.json */; };
+		AA42E2232A4A2C940059D9F8 /* page2.json in Resources */ = {isa = PBXBuildFile; fileRef = AA42E2222A4A2C940059D9F8 /* page2.json */; };
+		AA42E2252A4A2CA90059D9F8 /* page3.json in Resources */ = {isa = PBXBuildFile; fileRef = AA42E2242A4A2CA90059D9F8 /* page3.json */; };
+		AA42E2272A4A2CC00059D9F8 /* page4.json in Resources */ = {isa = PBXBuildFile; fileRef = AA42E2262A4A2CC00059D9F8 /* page4.json */; };
 		AA456F852A46AD440001EEDC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA456F842A46AD440001EEDC /* AppDelegate.swift */; };
 		AA456F872A46AD440001EEDC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA456F862A46AD440001EEDC /* SceneDelegate.swift */; };
 		AA456F892A46AD440001EEDC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA456F882A46AD440001EEDC /* ViewController.swift */; };
@@ -15,7 +19,7 @@
 		AA456F912A46AD440001EEDC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA456F8F2A46AD440001EEDC /* LaunchScreen.storyboard */; };
 		AA456F9C2A46B1F90001EEDC /* PinCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA456F9B2A46B1F90001EEDC /* PinCollectionViewCell.swift */; };
 		AA456F9F2A46C3760001EEDC /* UICollectionViewWaterfallLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA456F9E2A46C3760001EEDC /* UICollectionViewWaterfallLayout.swift */; };
-		AAC6A5052A48CEBD009BC93C /* photos.json in Resources */ = {isa = PBXBuildFile; fileRef = AAC6A5042A48CEBD009BC93C /* photos.json */; };
+		AAC6A5052A48CEBD009BC93C /* page0.json in Resources */ = {isa = PBXBuildFile; fileRef = AAC6A5042A48CEBD009BC93C /* page0.json */; };
 		AAC6A5072A48CF9E009BC93C /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC6A5062A48CF9E009BC93C /* Photo.swift */; };
 		AAC6A5092A48D3B6009BC93C /* mock2.json in Resources */ = {isa = PBXBuildFile; fileRef = AAC6A5082A48D3B6009BC93C /* mock2.json */; };
 		AAC6A50B2A48D488009BC93C /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC6A50A2A48D488009BC93C /* URLs.swift */; };
@@ -28,6 +32,10 @@
 
 /* Begin PBXFileReference section */
 		AA42E21E2A4A25DC0059D9F8 /* PhotoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoService.swift; sourceTree = "<group>"; };
+		AA42E2202A4A2C720059D9F8 /* page1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = page1.json; sourceTree = "<group>"; };
+		AA42E2222A4A2C940059D9F8 /* page2.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = page2.json; sourceTree = "<group>"; };
+		AA42E2242A4A2CA90059D9F8 /* page3.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = page3.json; sourceTree = "<group>"; };
+		AA42E2262A4A2CC00059D9F8 /* page4.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = page4.json; sourceTree = "<group>"; };
 		AA456F812A46AD440001EEDC /* Pinsplash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pinsplash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA456F842A46AD440001EEDC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AA456F862A46AD440001EEDC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,7 +45,7 @@
 		AA456F922A46AD440001EEDC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA456F9B2A46B1F90001EEDC /* PinCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCollectionViewCell.swift; sourceTree = "<group>"; };
 		AA456F9E2A46C3760001EEDC /* UICollectionViewWaterfallLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewWaterfallLayout.swift; sourceTree = "<group>"; };
-		AAC6A5042A48CEBD009BC93C /* photos.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = photos.json; sourceTree = "<group>"; };
+		AAC6A5042A48CEBD009BC93C /* page0.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = page0.json; sourceTree = "<group>"; };
 		AAC6A5062A48CF9E009BC93C /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		AAC6A5082A48D3B6009BC93C /* mock2.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mock2.json; sourceTree = "<group>"; };
 		AAC6A50A2A48D488009BC93C /* URLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
@@ -141,7 +149,11 @@
 			isa = PBXGroup;
 			children = (
 				AAC6A50F2A48D833009BC93C /* TestData.swift */,
-				AAC6A5042A48CEBD009BC93C /* photos.json */,
+				AAC6A5042A48CEBD009BC93C /* page0.json */,
+				AA42E2202A4A2C720059D9F8 /* page1.json */,
+				AA42E2222A4A2C940059D9F8 /* page2.json */,
+				AA42E2242A4A2CA90059D9F8 /* page3.json */,
+				AA42E2262A4A2CC00059D9F8 /* page4.json */,
 				AAC6A5082A48D3B6009BC93C /* mock2.json */,
 			);
 			path = "Preview Content";
@@ -222,10 +234,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA42E2232A4A2C940059D9F8 /* page2.json in Resources */,
 				AA456F912A46AD440001EEDC /* LaunchScreen.storyboard in Resources */,
 				AA456F8E2A46AD440001EEDC /* Assets.xcassets in Resources */,
 				AAC6A5092A48D3B6009BC93C /* mock2.json in Resources */,
-				AAC6A5052A48CEBD009BC93C /* photos.json in Resources */,
+				AA42E2212A4A2C720059D9F8 /* page1.json in Resources */,
+				AA42E2252A4A2CA90059D9F8 /* page3.json in Resources */,
+				AA42E2272A4A2CC00059D9F8 /* page4.json in Resources */,
+				AAC6A5052A48CEBD009BC93C /* page0.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
