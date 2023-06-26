@@ -30,12 +30,8 @@ extension APIResource {
 
 struct PhotosResource: APIResource {
     typealias ModelType = [Photo]
-    var id: Int?
     
     var methodPath: String {
-        if let id = id {
-            return "/photos/:\(id)"
-        }
         return "/photos"
     }
     
