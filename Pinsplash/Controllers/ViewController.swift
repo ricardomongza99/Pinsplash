@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     
     // MARK: - PROPERTIES
     
-    private var photos: [Photo] = []
+    private var photos: [Photo] = TestData.photos
     private var photoService = PhotoService()
     
     
@@ -38,14 +38,7 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        photoService.fetchPhotos { photos in
-            if let photos = photos {
-                DispatchQueue.main.async {
-                    self.photos = photos
-                    self.pinsCollectionView.reloadData()
-                }
-            }
-        }
+//        fetchPhotos()
     }
     
     
@@ -74,14 +67,25 @@ class ViewController: UIViewController {
     
     private func setupDelegates() {
         pinsCollectionView.dataSource = self
+        pinsCollectionView.delegate = self
         if let layout = pinsCollectionView.collectionViewLayout as? UICollectionViewWaterfallLayout {
             layout.delegate = self
+        }
+    }
+    
+    // TODO: Fix this buggy mess
+    private func fetchPhotos() {
+        photoService.fetchPhotos { photos in
+            if let photos = photos {
+                self.photos.append(contentsOf: photos)
+                self.pinsCollectionView.reloadData()
+            }
         }
     }
 }
 
 
-extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateWaterallLayout {
+extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateWaterallLayout, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         photos.count
@@ -95,6 +99,14 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateWa
     
     func collectionView(_ collectionView: UICollectionView, heightForImageAtIndexPath indexPath: IndexPath) -> CGSize {
         return photos[indexPath.item].size
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if indexPath.row == photos.count - 1 {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+//                self.fetchPhotos()
+            }
+        }
     }
 }
 
