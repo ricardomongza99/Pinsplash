@@ -24,6 +24,7 @@ class HomeViewController: UIViewController {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .white
         collectionView.register(PinCollectionViewCell.self, forCellWithReuseIdentifier: "pinCell")
+        collectionView.register(LoadingFooterView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: LoadingFooterView.identifier)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
     }()
@@ -110,10 +111,26 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if indexPath.row == photos.count - 1 && !photoService.isLoading {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
                 self.fetchPhotos()
-            }
+//            }
         }
+    }
+    
+    /// Accesory views
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        switch kind {
+        case UICollectionView.elementKindSectionFooter:
+            let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: LoadingFooterView.identifier, for: indexPath) as! LoadingFooterView
+            footer.spinner.startAnimating()
+            return footer
+        default:
+            return UICollectionReusableView()
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        return photoService.isLoading ? CGSize(width: collectionView.bounds.size.width, height: 50) : CGSize.zero
     }
 }
 

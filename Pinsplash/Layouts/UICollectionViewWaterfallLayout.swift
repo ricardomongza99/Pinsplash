@@ -22,6 +22,8 @@ class UICollectionViewWaterfallLayout: UICollectionViewLayout {
     
     private var contentHeight: CGFloat = 0
     
+    private var footerAttributes: UICollectionViewLayoutAttributes?
+    
     private var contentWidth: CGFloat {
         guard let collectionView = collectionView else {
             return 0
@@ -69,6 +71,12 @@ class UICollectionViewWaterfallLayout: UICollectionViewLayout {
                 column = column < (numberOfColumns - 1) ? (column + 1) : 0
             }
         }
+        
+        // Footer
+        let footerIndexPath = IndexPath(item: 0, section: 0)
+        footerAttributes = UICollectionViewLayoutAttributes(forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, with: footerIndexPath)
+        footerAttributes?.frame = CGRect(x: 0, y: contentHeight, width: collectionView.bounds.width, height: 50)
+        contentHeight += 50
     }
     
     override var collectionViewContentSize: CGSize {
@@ -85,6 +93,11 @@ class UICollectionViewWaterfallLayout: UICollectionViewLayout {
             }
         }
         
+        // If the footer's frame intersects the provided rect, add its layout
+        if let footerAttributes = footerAttributes, footerAttributes.frame.intersects(rect) {
+            visibleLayoutAttributes.append(footerAttributes)
+        }
+        
         return visibleLayoutAttributes
     }
     
@@ -97,4 +110,12 @@ class UICollectionViewWaterfallLayout: UICollectionViewLayout {
         return !newBounds.size.equalTo(collectionView.bounds.size)
     }
     
+    override func layoutAttributesForSupplementaryView(ofKind elementKind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+        if elementKind == UICollectionView.elementKindSectionFooter {
+            return footerAttributes
+        }
+        
+        return nil
+    }
+        
 }
