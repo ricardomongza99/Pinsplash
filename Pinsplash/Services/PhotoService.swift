@@ -9,8 +9,8 @@ import Foundation
 
 class PhotoService {
     private var currentPage = 0
-    private let photosPerPage = 10
-    var isLoading: Bool = false
+    private let photosPerPage = 30
+    var isLoading = false
     
     func fetchPhotos(completion: @escaping([Photo]?) -> Void){
         guard !isLoading else { return }
@@ -19,6 +19,7 @@ class PhotoService {
         let resource = PhotosResource(page: currentPage, perPage: photosPerPage)
         let request = APIRequest(resource: resource)
         
+        print("Will fetch photos for page \(currentPage)")
         request.execute { [weak self] photos in
             completion(photos)
             

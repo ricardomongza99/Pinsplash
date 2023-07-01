@@ -44,6 +44,8 @@ class PinCollectionViewCell: UICollectionViewCell {
     // MARK: - SETUP
     
     func configure(with photo: Photo) {
-        imageView.load(urlString: photo.urls.small)
+        guard let url = URL(string: photo.urls.small) else { return }
+        imageView.image = nil
+        imageView.load(url: url)
     }
 }

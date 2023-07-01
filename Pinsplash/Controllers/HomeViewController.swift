@@ -7,18 +7,18 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class HomeViewController: UIViewController {
     
     
     // MARK: - PROPERTIES
     
-    private var photos: [Photo] = TestData.photos
+    private var photos: [Photo] = []
     private var photoService = PhotoService()
     
     
     // MARK: - COMPONENTS
     
-    private let pinsCollectionView: UICollectionView = {
+    private let photosCollectionView: UICollectionView = {
         let layout = UICollectionViewWaterfallLayout()
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -38,7 +38,7 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-//        fetchPhotos()
+        fetchPhotos()
     }
     
     
@@ -53,39 +53,46 @@ class ViewController: UIViewController {
     }
     
     private func setupSubviews() {
-        view.addSubview(pinsCollectionView)
+        view.addSubview(photosCollectionView)
     }
     
     private func setupLayout() {
         NSLayoutConstraint.activate([
-            pinsCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            pinsCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            pinsCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            pinsCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            photosCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            photosCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            photosCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            photosCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
     }
     
     private func setupDelegates() {
-        pinsCollectionView.dataSource = self
-        pinsCollectionView.delegate = self
-        if let layout = pinsCollectionView.collectionViewLayout as? UICollectionViewWaterfallLayout {
+        photosCollectionView.dataSource = self
+        photosCollectionView.delegate = self
+        if let layout = photosCollectionView.collectionViewLayout as? UICollectionViewWaterfallLayout {
             layout.delegate = self
         }
     }
     
-    // TODO: Fix this buggy mess
+    // TODO: Layout correctly when paginating
     private func fetchPhotos() {
-        photoService.fetchPhotos { photos in
-            if let photos = photos {
-                self.photos.append(contentsOf: photos)
-                self.pinsCollectionView.reloadData()
+        photoService.fetchPhotos { newPhotos in
+            if let newPhotos = newPhotos {
+                let newIndexPaths = (self.photos.count..<(self.photos.count + newPhotos.count)).map { IndexPath(row: $0, section: 0) }
+                self.photos.append(contentsOf: newPhotos)
+                DispatchQueue.main.async {
+                    self.photosCollectionView.performBatchUpdates {
+                        self.photosCollectionView.insertItems(at: newIndexPaths)
+                    }
+                }
             }
         }
     }
 }
 
 
-extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateWaterallLayout, UICollectionViewDelegate {
+extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegateWaterallLayout, UICollectionViewDelegate {
+    
+    // MARK: UICollectionViewDataSource and delegate methods
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         photos.count
@@ -102,9 +109,9 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateWa
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if indexPath.row == photos.count - 1 {
+        if indexPath.row == photos.count - 1 && !photoService.isLoading {
             DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-//                self.fetchPhotos()
+                self.fetchPhotos()
             }
         }
     }
