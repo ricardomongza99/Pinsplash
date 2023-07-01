@@ -81,9 +81,16 @@ class HomeViewController: UIViewController {
                 let newIndexPaths = (self.photos.count..<(self.photos.count + newPhotos.count)).map { IndexPath(row: $0, section: 0) }
                 self.photos.append(contentsOf: newPhotos)
                 DispatchQueue.main.async {
-                    self.photosCollectionView.performBatchUpdates {
-                        self.photosCollectionView.insertItems(at: newIndexPaths)
+                    if self.photos.count == newPhotos.count {
+                        // First fetch
+                        self.photosCollectionView.reloadData()
+                    } else {
+                        // Paginate
+                        self.photosCollectionView.performBatchUpdates {
+                            self.photosCollectionView.insertItems(at: newIndexPaths)
+                        }
                     }
+
                 }
             }
         }
