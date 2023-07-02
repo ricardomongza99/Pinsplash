@@ -27,6 +27,7 @@
 		AA8884FF2A50B630000858D5 /* LoadingFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8884FE2A50B630000858D5 /* LoadingFooterView.swift */; };
 		AA8885012A50BAC2000858D5 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8885002A50BAC2000858D5 /* TabBarViewController.swift */; };
 		AA8885032A50BB40000858D5 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8885022A50BB40000858D5 /* ProfileViewController.swift */; };
+		AA8885052A512428000858D5 /* PhotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8885042A512428000858D5 /* PhotoDetailViewController.swift */; };
 		AAC6A5052A48CEBD009BC93C /* page0.json in Resources */ = {isa = PBXBuildFile; fileRef = AAC6A5042A48CEBD009BC93C /* page0.json */; };
 		AAC6A5072A48CF9E009BC93C /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC6A5062A48CF9E009BC93C /* Photo.swift */; };
 		AAC6A5092A48D3B6009BC93C /* mock2.json in Resources */ = {isa = PBXBuildFile; fileRef = AAC6A5082A48D3B6009BC93C /* mock2.json */; };
@@ -61,6 +62,7 @@
 		AA8884FE2A50B630000858D5 /* LoadingFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingFooterView.swift; sourceTree = "<group>"; };
 		AA8885002A50BAC2000858D5 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		AA8885022A50BB40000858D5 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		AA8885042A512428000858D5 /* PhotoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewController.swift; sourceTree = "<group>"; };
 		AAC6A5042A48CEBD009BC93C /* page0.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = page0.json; sourceTree = "<group>"; };
 		AAC6A5062A48CF9E009BC93C /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		AAC6A5082A48D3B6009BC93C /* mock2.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mock2.json; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				AA456F882A46AD440001EEDC /* PhotosCollectionViewController.swift */,
 				AA0191962A4BD02B00A1089F /* PhotosTableViewController.swift */,
 				AA8885022A50BB40000858D5 /* ProfileViewController.swift */,
+				AA8885042A512428000858D5 /* PhotoDetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 				AA01919D2A4BDC7100A1089F /* ImageLoader.swift in Sources */,
 				AA456F9F2A46C3760001EEDC /* UICollectionViewWaterfallLayout.swift in Sources */,
 				AAC6A5132A491EF4009BC93C /* APIResource.swift in Sources */,
+				AA8885052A512428000858D5 /* PhotoDetailViewController.swift in Sources */,
 				AA01919F2A4BDE7900A1089F /* PhotoTableViewCell.swift in Sources */,
 				AA0191992A4BD23700A1089F /* UIImage+Extensions.swift in Sources */,
 				AA8885032A50BB40000858D5 /* ProfileViewController.swift in Sources */,

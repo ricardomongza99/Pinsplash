@@ -18,6 +18,10 @@ struct Photo: Codable {
     let user: User
     
     var size: CGSize {
-        CGSize(width: self.width, height: self.height)
+        return CGSize(width: self.width, height: self.height)
+    }
+    
+    var aspectRatio: CGFloat {
+        return CGFloat(height) / CGFloat(width)
     }
 }

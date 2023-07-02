@@ -37,11 +37,6 @@ class PhotosCollectionViewController: UIViewController {
         setup()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        fetchPhotos()
-    }
-    
     
     // MARK: - SETUP
     
@@ -51,6 +46,8 @@ class PhotosCollectionViewController: UIViewController {
         setupSubviews()
         setupLayout()
         setupDelegates()
+        
+        fetchPhotos()
     }
     
     private func setupSubviews() {
@@ -138,6 +135,12 @@ extension PhotosCollectionViewController: UICollectionViewDataSource, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
         return photoService.isLoading ? CGSize(width: collectionView.bounds.size.width, height: 50) : CGSize.zero
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedPhoto = photos[indexPath.item]
+        let photoDetailVC = PhotoDetailViewController(selectedPhoto)
+        present(photoDetailVC, animated: true)
     }
 }
 
