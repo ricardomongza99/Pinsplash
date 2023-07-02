@@ -8,14 +8,37 @@
 import Foundation
 
 class PhotoService {
+    
+    // MARK: - PROPERTIES
+    
     private var currentPage = 0
-    private let photosPerPage = 30
+    private let photosPerPage = 20
+    var useMockData: Bool
     var isLoading = false
+
+    
+    // MARK: - INITIALIZERS
+    
+    init(useMockData: Bool = false) {
+        self.useMockData = useMockData
+    }
+    
+    
+    // MARK: - FETCH METHODS
     
     func fetchPhotos(completion: @escaping([Photo]?) -> Void){
         guard !isLoading else { return }
         
         isLoading = true
+        
+        if useMockData {
+            fetchMockData(completion: completion)
+        } else {
+            fetchRealData(completion: completion)
+        }
+    }
+    
+    private func fetchRealData(completion: @escaping([Photo]?) -> Void) {
         let resource = PhotosResource(page: currentPage, perPage: photosPerPage)
         let request = APIRequest(resource: resource)
         
@@ -31,6 +54,20 @@ class PhotoService {
             }
             self?.isLoading = false
         }
+    }
+    
+    private func fetchMockData(completion: @escaping([Photo]?) -> Void) {
+        guard currentPage <= 4 else {
+            completion(nil)
+            return
+        }
+        
+        let mockPhotos = TestData.getPhotos(page: currentPage)
+        completion(mockPhotos)
+        
+        print("✅ Mock photos fetched. Current page: \(currentPage)")
+        currentPage += 1
+        isLoading = false
     }
     
     func resetPagination() {
