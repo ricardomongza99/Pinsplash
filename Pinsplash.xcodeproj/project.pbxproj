@@ -24,6 +24,7 @@
 		AA456F912A46AD440001EEDC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA456F8F2A46AD440001EEDC /* LaunchScreen.storyboard */; };
 		AA456F9C2A46B1F90001EEDC /* PinCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA456F9B2A46B1F90001EEDC /* PinCollectionViewCell.swift */; };
 		AA456F9F2A46C3760001EEDC /* UICollectionViewWaterfallLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA456F9E2A46C3760001EEDC /* UICollectionViewWaterfallLayout.swift */; };
+		AA7E38F92A5134DA0059FA29 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7E38F82A5134DA0059FA29 /* RoundButton.swift */; };
 		AA8884FF2A50B630000858D5 /* LoadingFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8884FE2A50B630000858D5 /* LoadingFooterView.swift */; };
 		AA8885012A50BAC2000858D5 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8885002A50BAC2000858D5 /* TabBarViewController.swift */; };
 		AA8885032A50BB40000858D5 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8885022A50BB40000858D5 /* ProfileViewController.swift */; };
@@ -58,6 +59,7 @@
 		AA456F922A46AD440001EEDC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA456F9B2A46B1F90001EEDC /* PinCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCollectionViewCell.swift; sourceTree = "<group>"; };
 		AA456F9E2A46C3760001EEDC /* UICollectionViewWaterfallLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewWaterfallLayout.swift; sourceTree = "<group>"; };
+		AA7E38F82A5134DA0059FA29 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		AA8884FE2A50B630000858D5 /* LoadingFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingFooterView.swift; sourceTree = "<group>"; };
 		AA8885002A50BAC2000858D5 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		AA8885022A50BB40000858D5 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				AA456F9B2A46B1F90001EEDC /* PinCollectionViewCell.swift */,
 				AA01919E2A4BDE7900A1089F /* PhotoTableViewCell.swift */,
 				AA8884FE2A50B630000858D5 /* LoadingFooterView.swift */,
+				AA7E38F82A5134DA0059FA29 /* RoundButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 				AAC6A5072A48CF9E009BC93C /* Photo.swift in Sources */,
 				AA01919B2A4BD4A000A1089F /* ImageCache.swift in Sources */,
 				AA456F9C2A46B1F90001EEDC /* PinCollectionViewCell.swift in Sources */,
+				AA7E38F92A5134DA0059FA29 /* RoundButton.swift in Sources */,
 				AA456F892A46AD440001EEDC /* PhotosCollectionViewController.swift in Sources */,
 				AAC6A50D2A48D505009BC93C /* User.swift in Sources */,
 				AA8884FF2A50B630000858D5 /* LoadingFooterView.swift in Sources */,
