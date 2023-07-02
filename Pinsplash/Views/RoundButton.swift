@@ -56,7 +56,7 @@ class RoundButton: UIButton {
     func setup() {
         self.layer.cornerRadius = self.frame.size.height / 2
         self.clipsToBounds = true
-        self.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+        self.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
         
 
 
