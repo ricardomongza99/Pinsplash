@@ -27,10 +27,9 @@ class TabBarViewController: UITabBarController {
         profileVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "person.fill"), selectedImage: nil)
         
         // Wrap them in navigation controllers
-        let homeNavVC = UINavigationController(rootViewController: homeVC)
         let profileNavVC = UINavigationController(rootViewController: profileVC)
         
-        viewControllers = [homeNavVC, profileNavVC]
+        viewControllers = [homeVC, profileNavVC]
     }
     
 }
