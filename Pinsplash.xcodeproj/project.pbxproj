@@ -31,7 +31,6 @@
 		AAC6A5052A48CEBD009BC93C /* page0.json in Resources */ = {isa = PBXBuildFile; fileRef = AAC6A5042A48CEBD009BC93C /* page0.json */; };
 		AAC6A5072A48CF9E009BC93C /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC6A5062A48CF9E009BC93C /* Photo.swift */; };
 		AAC6A5092A48D3B6009BC93C /* mock2.json in Resources */ = {isa = PBXBuildFile; fileRef = AAC6A5082A48D3B6009BC93C /* mock2.json */; };
-		AAC6A50B2A48D488009BC93C /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC6A50A2A48D488009BC93C /* URLs.swift */; };
 		AAC6A50D2A48D505009BC93C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC6A50C2A48D505009BC93C /* User.swift */; };
 		AAC6A5102A48D833009BC93C /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC6A50F2A48D833009BC93C /* TestData.swift */; };
 		AAC6A5132A491EF4009BC93C /* APIResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC6A5122A491EF4009BC93C /* APIResource.swift */; };
@@ -66,7 +65,6 @@
 		AAC6A5042A48CEBD009BC93C /* page0.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = page0.json; sourceTree = "<group>"; };
 		AAC6A5062A48CF9E009BC93C /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		AAC6A5082A48D3B6009BC93C /* mock2.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mock2.json; sourceTree = "<group>"; };
-		AAC6A50A2A48D488009BC93C /* URLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
 		AAC6A50C2A48D505009BC93C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		AAC6A50F2A48D833009BC93C /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
 		AAC6A5122A491EF4009BC93C /* APIResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResource.swift; sourceTree = "<group>"; };
@@ -125,7 +123,6 @@
 			isa = PBXGroup;
 			children = (
 				AAC6A5062A48CF9E009BC93C /* Photo.swift */,
-				AAC6A50A2A48D488009BC93C /* URLs.swift */,
 				AAC6A50C2A48D505009BC93C /* User.swift */,
 			);
 			path = Models;
@@ -284,7 +281,6 @@
 				AA01919B2A4BD4A000A1089F /* ImageCache.swift in Sources */,
 				AA456F9C2A46B1F90001EEDC /* PinCollectionViewCell.swift in Sources */,
 				AA456F892A46AD440001EEDC /* PhotosCollectionViewController.swift in Sources */,
-				AAC6A50B2A48D488009BC93C /* URLs.swift in Sources */,
 				AAC6A50D2A48D505009BC93C /* User.swift in Sources */,
 				AA8884FF2A50B630000858D5 /* LoadingFooterView.swift in Sources */,
 				AA8885012A50BAC2000858D5 /* TabBarViewController.swift in Sources */,

@@ -24,4 +24,13 @@ struct Photo: Codable {
     var aspectRatio: CGFloat {
         return CGFloat(height) / CGFloat(width)
     }
+    
+    struct URLs: Codable {
+        let raw: String
+        let full: String
+        let regular: String
+        let small: String
+        let thumb: String
+        let smallS3: String
+    }
 }

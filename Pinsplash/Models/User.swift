@@ -18,4 +18,11 @@ struct User: Codable {
     let location: String?
     let totalLikes: Int
     let totalPhotos: Int
+    let profileImage: URLs
+    
+    struct URLs: Codable {
+        let small: String
+        let medium: String
+        let large: String
+    }
 }
