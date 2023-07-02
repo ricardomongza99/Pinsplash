@@ -19,7 +19,7 @@
 		AA42E2272A4A2CC00059D9F8 /* page4.json in Resources */ = {isa = PBXBuildFile; fileRef = AA42E2262A4A2CC00059D9F8 /* page4.json */; };
 		AA456F852A46AD440001EEDC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA456F842A46AD440001EEDC /* AppDelegate.swift */; };
 		AA456F872A46AD440001EEDC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA456F862A46AD440001EEDC /* SceneDelegate.swift */; };
-		AA456F892A46AD440001EEDC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA456F882A46AD440001EEDC /* HomeViewController.swift */; };
+		AA456F892A46AD440001EEDC /* PhotosCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA456F882A46AD440001EEDC /* PhotosCollectionViewController.swift */; };
 		AA456F8E2A46AD440001EEDC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA456F8D2A46AD440001EEDC /* Assets.xcassets */; };
 		AA456F912A46AD440001EEDC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA456F8F2A46AD440001EEDC /* LaunchScreen.storyboard */; };
 		AA456F9C2A46B1F90001EEDC /* PinCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA456F9B2A46B1F90001EEDC /* PinCollectionViewCell.swift */; };
@@ -52,7 +52,7 @@
 		AA456F812A46AD440001EEDC /* Pinsplash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pinsplash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA456F842A46AD440001EEDC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AA456F862A46AD440001EEDC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		AA456F882A46AD440001EEDC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		AA456F882A46AD440001EEDC /* PhotosCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewController.swift; sourceTree = "<group>"; };
 		AA456F8D2A46AD440001EEDC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AA456F902A46AD440001EEDC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AA456F922A46AD440001EEDC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -143,7 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				AA8885002A50BAC2000858D5 /* TabBarViewController.swift */,
-				AA456F882A46AD440001EEDC /* HomeViewController.swift */,
+				AA456F882A46AD440001EEDC /* PhotosCollectionViewController.swift */,
 				AA0191962A4BD02B00A1089F /* PhotosTableViewController.swift */,
 				AA8885022A50BB40000858D5 /* ProfileViewController.swift */,
 			);
@@ -280,7 +280,7 @@
 				AAC6A5072A48CF9E009BC93C /* Photo.swift in Sources */,
 				AA01919B2A4BD4A000A1089F /* ImageCache.swift in Sources */,
 				AA456F9C2A46B1F90001EEDC /* PinCollectionViewCell.swift in Sources */,
-				AA456F892A46AD440001EEDC /* HomeViewController.swift in Sources */,
+				AA456F892A46AD440001EEDC /* PhotosCollectionViewController.swift in Sources */,
 				AAC6A50B2A48D488009BC93C /* URLs.swift in Sources */,
 				AAC6A50D2A48D505009BC93C /* User.swift in Sources */,
 				AA8884FF2A50B630000858D5 /* LoadingFooterView.swift in Sources */,

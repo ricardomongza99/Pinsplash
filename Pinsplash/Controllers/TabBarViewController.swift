@@ -20,7 +20,7 @@ class TabBarViewController: UITabBarController {
     
     private func setup() {
         // Create base view controllers
-        let homeVC = HomeViewController()
+        let homeVC = PhotosCollectionViewController()
         let profileVC = ProfileViewController()
         
         homeVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "house.fill"), selectedImage: nil)

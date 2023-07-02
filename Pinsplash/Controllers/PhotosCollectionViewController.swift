@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class PhotosCollectionViewController: UIViewController {
     
     
     // MARK: - PROPERTIES
@@ -98,7 +98,7 @@ class HomeViewController: UIViewController {
 }
 
 
-extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegateWaterallLayout, UICollectionViewDelegate {
+extension PhotosCollectionViewController: UICollectionViewDataSource, UICollectionViewDelegateWaterallLayout, UICollectionViewDelegate {
     
     // MARK: UICollectionViewDataSource and delegate methods
     
