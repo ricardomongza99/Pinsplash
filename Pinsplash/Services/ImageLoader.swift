@@ -17,7 +17,9 @@ final class ImageLoader {
     func loadImage(url: URL, completion: @escaping (UIImage?) -> Void) {
         // Check the image cache
         if let image = imageCache[url] {
-            completion(image)
+            DispatchQueue.main.async {
+                completion(image)
+            }
             return
         }
         
@@ -25,11 +27,15 @@ final class ImageLoader {
         let task = URLSession.shared.dataTask(with: url) { data, _, error in
             if let error = error {
                 print("Error fetching image: \(error)")
-                completion(nil)
+                DispatchQueue.main.async {
+                    completion(nil)
+                }
             } else if let data = data {
                 let image = UIImage(data: data)
                 self.imageCache[url] = image
-                completion(image)
+                DispatchQueue.main.async {
+                    completion(image)
+                }
             }
         }
         

@@ -23,6 +23,7 @@ protocol ImageCacheType: AnyObject {
     subscript(_ url: URL) -> UIImage? { get set }
 }
 
+// TODO: Syncronize access to cache
 
 final class ImageCache {
     
