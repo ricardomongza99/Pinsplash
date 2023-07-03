@@ -11,7 +11,7 @@ class PhotoService {
     
     // MARK: - PROPERTIES
     
-    private var currentPage = 0
+    private var currentPage = 1
     private let photosPerPage = 20
     var useMockData: Bool
     var isLoading = false
