@@ -77,18 +77,22 @@ class PhotosCollectionViewController: UIViewController {
             if let newPhotos = newPhotos {
                 let newIndexPaths = (self.photos.count..<(self.photos.count + newPhotos.count)).map { IndexPath(row: $0, section: 0) }
                 self.photos.append(contentsOf: newPhotos)
-                DispatchQueue.main.async {
-                    if self.photos.count == newPhotos.count {
+                
+                if self.photos.count == newPhotos.count {
+                    DispatchQueue.main.async {
                         // First fetch
                         self.photosCollectionView.reloadData()
-                    } else {
+                    }
+                } else {
+                    DispatchQueue.main.async {
                         // Paginate
                         self.photosCollectionView.performBatchUpdates {
                             self.photosCollectionView.insertItems(at: newIndexPaths)
                         }
                     }
-
                 }
+
+            
             }
         }
     }
@@ -115,9 +119,7 @@ extension PhotosCollectionViewController: UICollectionViewDataSource, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if indexPath.row == photos.count - 1 && !photoService.isLoading {
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-                self.fetchPhotos()
-//            }
+            self.fetchPhotos()
         }
     }
     

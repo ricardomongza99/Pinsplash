@@ -16,7 +16,7 @@ class PhotoDetailViewController: UIViewController {
     
     // MARK: - SUBVIEWS
     
-    private var scrollView: UIScrollView = {
+    private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.alwaysBounceVertical = false 
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -31,7 +31,7 @@ class PhotoDetailViewController: UIViewController {
         return stackView
     }()
     
-    private lazy var photoImageView: UIImageView = {
+    private let photoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = .systemGray5
         imageView.contentMode = .scaleAspectFill
@@ -41,14 +41,10 @@ class PhotoDetailViewController: UIViewController {
     
     private lazy var detailStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [userContainerView])
-        if let description = photo.description {
-            descriptionLabel.text = description
-            stackView.insertArrangedSubview(descriptionLabel, at: 1)
-        }
         stackView.axis = .vertical
-        stackView.spacing = 16
+        stackView.spacing = 12
         stackView.isLayoutMarginsRelativeArrangement = true
-        stackView.layoutMargins = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
+        stackView.layoutMargins = UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12)
         return stackView
     }()
     
@@ -81,22 +77,20 @@ class PhotoDetailViewController: UIViewController {
     }()
     
     private lazy var userStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [userLabel, userFollowersLabel])
+        let stackView = UIStackView(arrangedSubviews: [userLabel, userLikesLabel])
         stackView.axis = .vertical
         stackView.spacing = 0
         return stackView
     }()
     
-    private lazy var userLabel: UILabel = {
+    private let userLabel: UILabel = {
         let label = UILabel()
-        label.text = photo.user.name
         label.font = .systemFont(ofSize: 12, weight: .bold)
         return label
     }()
     
-    private lazy var userFollowersLabel: UILabel = {
+    private let userLikesLabel: UILabel = {
         let label = UILabel()
-        label.text = "\(photo.user.totalLikes) likes"
         label.font = .systemFont(ofSize: 12)
         label.textColor = .gray
         return label
@@ -157,13 +151,18 @@ class PhotoDetailViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     
     // MARK: - LIFECYCLE
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadImages()
     }
     
     
@@ -174,7 +173,7 @@ class PhotoDetailViewController: UIViewController {
         
         setupSubviews()
         setupLayout()
-        loadImage()
+        setupData()
         
         viewButton.sizeToFit()
     }
@@ -205,11 +204,20 @@ class PhotoDetailViewController: UIViewController {
         ])
     }
     
-    private func loadImage() {
+    private func setupData() {
+        userLabel.text = photo.user.name
+        userLikesLabel.text = "\(photo.likes) likes"
+        if let description = photo.description {
+            descriptionLabel.text = description
+            detailStackView.addArrangedSubview(descriptionLabel)
+        }
+    }
+    
+    private func loadImages() {
         if let url = URL(string: photo.urls.small) {
             photoImageView.load(url: url)
         }
-        if let url = URL(string: photo.urls.full) {
+        if let url = URL(string: photo.urls.regular) {
             photoImageView.load(url: url)
         }
         
