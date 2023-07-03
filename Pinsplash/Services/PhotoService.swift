@@ -57,7 +57,7 @@ class PhotoService {
     }
     
     private func fetchMockData(completion: @escaping([Photo]?) -> Void) {
-        guard currentPage <= 3 else {
+        guard currentPage <= 4 else {
             completion(nil)
             return
         }
