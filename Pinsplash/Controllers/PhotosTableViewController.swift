@@ -12,7 +12,6 @@ class PhotosTableViewController: UITableViewController {
     // MARK: - PROPERTIES
     
     private var photos: [Photo] = []
-    private var photoService = PhotoService()
     
     // MARK: - LIFECYCLE
 
@@ -29,24 +28,7 @@ class PhotosTableViewController: UITableViewController {
     // MARK: - SETUP
     
     private func fetchPhotos() {
-        photoService.fetchPhotos { newPhotos in
-            if let newPhotos = newPhotos {
-                let newIndexPaths = (self.photos.count..<(self.photos.count + newPhotos.count)).map { IndexPath(row: $0, section: 0) }
-                self.photos.append(contentsOf: newPhotos)
-                DispatchQueue.main.async {
-                    if self.photos.count == newPhotos.count {
-                        // First fetch
-                        self.tableView.reloadData()
-                    } else {
-                        // Paginate
-                        self.tableView.beginUpdates()
-                        self.tableView.insertRows(at: newIndexPaths, with: .fade)
-                        self.tableView.endUpdates()
-                    }
-
-                }
-            }
-        }
+        // TODO: Fetch photos
     }
 
     // MARK: - Table view data source
@@ -69,12 +51,4 @@ class PhotosTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
     }
-    
-    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row == photos.count - 1 && !photoService.isLoading {
-            fetchPhotos()
-        }
-    }
-
-
 }

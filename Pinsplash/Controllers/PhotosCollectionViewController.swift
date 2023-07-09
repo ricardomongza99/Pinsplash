@@ -71,7 +71,6 @@ class PhotosCollectionViewController: UIViewController {
         }
     }
     
-    // TODO: Layout correctly when paginating
     private func fetchPhotos() {
         photoService.fetchPhotos { newPhotos in
             if let newPhotos = newPhotos {

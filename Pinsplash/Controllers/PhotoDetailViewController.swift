@@ -128,8 +128,9 @@ class PhotoDetailViewController: UIViewController {
         return button
     }()
         
-    private let saveButton: RoundButton = {
+    private lazy var saveButton: RoundButton = {
         let button = RoundButton()
+        button.addTarget(self, action: #selector(savePhoto), for: .touchUpInside)
         button.setTitle("Save", for: .normal)
         return button
     }()
@@ -224,6 +225,12 @@ class PhotoDetailViewController: UIViewController {
         if let url = URL(string: photo.user.profileImage.small) {
             userProfileImageView.load(url: url)
         }
+    }
+    
+    // MARK: - ACTIONS
+    
+    @objc private func savePhoto() {
+        // TODO: Save photo
     }
     
 
