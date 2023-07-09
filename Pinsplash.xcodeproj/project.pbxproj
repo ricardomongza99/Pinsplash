@@ -12,6 +12,9 @@
 		AA01919B2A4BD4A000A1089F /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01919A2A4BD4A000A1089F /* ImageCache.swift */; };
 		AA01919D2A4BDC7100A1089F /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01919C2A4BDC7100A1089F /* ImageLoader.swift */; };
 		AA01919F2A4BDE7900A1089F /* PhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01919E2A4BDE7900A1089F /* PhotoTableViewCell.swift */; };
+		AA36172D2A527909004F2504 /* Pinsplash.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AA36172B2A527909004F2504 /* Pinsplash.xcdatamodeld */; };
+		AA36172F2A527BC5004F2504 /* PhotoEntity+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA36172E2A527BC5004F2504 /* PhotoEntity+Extensions.swift */; };
+		AA3617362A527DB3004F2504 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3617352A527DB3004F2504 /* PersistenceController.swift */; };
 		AA42E21F2A4A25DC0059D9F8 /* PhotoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA42E21E2A4A25DC0059D9F8 /* PhotoService.swift */; };
 		AA42E2232A4A2C940059D9F8 /* page3.json in Resources */ = {isa = PBXBuildFile; fileRef = AA42E2222A4A2C940059D9F8 /* page3.json */; };
 		AA42E2252A4A2CA90059D9F8 /* page4.json in Resources */ = {isa = PBXBuildFile; fileRef = AA42E2242A4A2CA90059D9F8 /* page4.json */; };
@@ -44,6 +47,9 @@
 		AA01919A2A4BD4A000A1089F /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		AA01919C2A4BDC7100A1089F /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		AA01919E2A4BDE7900A1089F /* PhotoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTableViewCell.swift; sourceTree = "<group>"; };
+		AA36172C2A527909004F2504 /* Pinsplash.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Pinsplash.xcdatamodel; sourceTree = "<group>"; };
+		AA36172E2A527BC5004F2504 /* PhotoEntity+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhotoEntity+Extensions.swift"; sourceTree = "<group>"; };
+		AA3617352A527DB3004F2504 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		AA42E21E2A4A25DC0059D9F8 /* PhotoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoService.swift; sourceTree = "<group>"; };
 		AA42E2222A4A2C940059D9F8 /* page3.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = page3.json; sourceTree = "<group>"; };
 		AA42E2242A4A2CA90059D9F8 /* page4.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = page4.json; sourceTree = "<group>"; };
@@ -83,6 +89,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AA3617342A527D9E004F2504 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				AA3617352A527DB3004F2504 /* PersistenceController.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
 		AA456F782A46AD440001EEDC = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +120,7 @@
 				AA456F862A46AD440001EEDC /* SceneDelegate.swift */,
 				AAC6A5112A491EDE009BC93C /* Networking */,
 				AA456FA42A4807510001EEDC /* Services */,
+				AA3617342A527D9E004F2504 /* Persistence */,
 				AA456F9D2A46C34E0001EEDC /* Layouts */,
 				AA456F982A46AE270001EEDC /* Models */,
 				AA456F992A46AE2D0001EEDC /* Views */,
@@ -122,6 +137,8 @@
 		AA456F982A46AE270001EEDC /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				AA36172B2A527909004F2504 /* Pinsplash.xcdatamodeld */,
+				AA36172E2A527BC5004F2504 /* PhotoEntity+Extensions.swift */,
 				AAC6A5062A48CF9E009BC93C /* Photo.swift */,
 				AAC6A50C2A48D505009BC93C /* User.swift */,
 			);
@@ -276,6 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAC6A5102A48D833009BC93C /* TestData.swift in Sources */,
+				AA36172F2A527BC5004F2504 /* PhotoEntity+Extensions.swift in Sources */,
 				AAC6A5072A48CF9E009BC93C /* Photo.swift in Sources */,
 				AA01919B2A4BD4A000A1089F /* ImageCache.swift in Sources */,
 				AA456F9C2A46B1F90001EEDC /* PinCollectionViewCell.swift in Sources */,
@@ -285,6 +303,7 @@
 				AA8884FF2A50B630000858D5 /* LoadingFooterView.swift in Sources */,
 				AA8885012A50BAC2000858D5 /* TabBarViewController.swift in Sources */,
 				AA0191972A4BD02B00A1089F /* PhotosTableViewController.swift in Sources */,
+				AA36172D2A527909004F2504 /* Pinsplash.xcdatamodeld in Sources */,
 				AA42E21F2A4A25DC0059D9F8 /* PhotoService.swift in Sources */,
 				AAC6A51C2A493C81009BC93C /* UIImageView+Extensions.swift in Sources */,
 				AA456F852A46AD440001EEDC /* AppDelegate.swift in Sources */,
@@ -297,6 +316,7 @@
 				AA8885032A50BB40000858D5 /* ProfileViewController.swift in Sources */,
 				AAC6A5172A49203A009BC93C /* NetworkRequest.swift in Sources */,
 				AA456F872A46AD440001EEDC /* SceneDelegate.swift in Sources */,
+				AA3617362A527DB3004F2504 /* PersistenceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -504,6 +524,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		AA36172B2A527909004F2504 /* Pinsplash.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				AA36172C2A527909004F2504 /* Pinsplash.xcdatamodel */,
+			);
+			currentVersion = AA36172C2A527909004F2504 /* Pinsplash.xcdatamodel */;
+			path = Pinsplash.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = AA456F792A46AD440001EEDC /* Project object */;
 }
