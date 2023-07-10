@@ -37,6 +37,12 @@ class PhotosCollectionViewController: UIViewController {
         setup()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        fetchPhotos()
+    }
+    
     
     // MARK: - SETUP
     
@@ -46,8 +52,6 @@ class PhotosCollectionViewController: UIViewController {
         setupSubviews()
         setupLayout()
         setupDelegates()
-        
-        fetchPhotos()
     }
     
     private func setupSubviews() {
@@ -72,7 +76,7 @@ class PhotosCollectionViewController: UIViewController {
     }
     
     private func fetchPhotos() {
-        photoService.fetchPhotos { newPhotos in
+        photoService.fetchPhotos(query: "office") { newPhotos in
             if let newPhotos = newPhotos {
                 let newIndexPaths = (self.photos.count..<(self.photos.count + newPhotos.count)).map { IndexPath(row: $0, section: 0) }
                 self.photos.append(contentsOf: newPhotos)

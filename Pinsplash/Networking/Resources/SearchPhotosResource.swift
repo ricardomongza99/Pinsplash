@@ -8,7 +8,7 @@
 import Foundation
 
 struct SearchPhotosResource: APIResource {
-    typealias ModelType = [Photo]
+    typealias ModelType = APIResponse
     
     let page: Int
     let perPage: Int

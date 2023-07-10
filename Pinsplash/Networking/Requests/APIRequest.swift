@@ -19,12 +19,17 @@ extension APIRequest: NetworkRequest {
     func decode(_ data: Data) -> Resource.ModelType? {
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
-        let items = try? decoder.decode(Resource.ModelType.self, from: data)
-        return items
+        // TODO: Add error handling
+        do {
+            let items = try decoder.decode(Resource.ModelType.self, from: data)
+            return items
+        } catch {
+            print("Error decoding: \(error)")
+            return nil
+        }
     }
     
     func execute(withCompletion completion: @escaping (Resource.ModelType?) -> Void) {
-        print(resource.url)
         load(resource.url, withCompletion: completion)
     }
 }

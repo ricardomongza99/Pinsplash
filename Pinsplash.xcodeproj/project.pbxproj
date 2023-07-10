@@ -30,6 +30,7 @@
 		AA5B3BD22A5CC13700B69081 /* ImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5B3BD12A5CC13700B69081 /* ImageRequest.swift */; };
 		AA5B3BD62A5CC29800B69081 /* PhotosResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5B3BD52A5CC29800B69081 /* PhotosResource.swift */; };
 		AA5B3BD82A5CC2B500B69081 /* SearchPhotosResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5B3BD72A5CC2B500B69081 /* SearchPhotosResource.swift */; };
+		AA5B3BDA2A5CC56300B69081 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5B3BD92A5CC56300B69081 /* APIResponse.swift */; };
 		AA7E38F92A5134DA0059FA29 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7E38F82A5134DA0059FA29 /* RoundButton.swift */; };
 		AA8884FF2A50B630000858D5 /* LoadingFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8884FE2A50B630000858D5 /* LoadingFooterView.swift */; };
 		AA8885012A50BAC2000858D5 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8885002A50BAC2000858D5 /* TabBarViewController.swift */; };
@@ -71,6 +72,7 @@
 		AA5B3BD12A5CC13700B69081 /* ImageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRequest.swift; sourceTree = "<group>"; };
 		AA5B3BD52A5CC29800B69081 /* PhotosResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosResource.swift; sourceTree = "<group>"; };
 		AA5B3BD72A5CC2B500B69081 /* SearchPhotosResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPhotosResource.swift; sourceTree = "<group>"; };
+		AA5B3BD92A5CC56300B69081 /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
 		AA7E38F82A5134DA0059FA29 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		AA8884FE2A50B630000858D5 /* LoadingFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingFooterView.swift; sourceTree = "<group>"; };
 		AA8885002A50BAC2000858D5 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				AA36172E2A527BC5004F2504 /* PhotoEntity+Extensions.swift */,
 				AAC6A5062A48CF9E009BC93C /* Photo.swift */,
 				AAC6A50C2A48D505009BC93C /* User.swift */,
+				AA5B3BD92A5CC56300B69081 /* APIResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 				AA7E38F92A5134DA0059FA29 /* RoundButton.swift in Sources */,
 				AA456F892A46AD440001EEDC /* PhotosCollectionViewController.swift in Sources */,
 				AAC6A50D2A48D505009BC93C /* User.swift in Sources */,
+				AA5B3BDA2A5CC56300B69081 /* APIResponse.swift in Sources */,
 				AA8884FF2A50B630000858D5 /* LoadingFooterView.swift in Sources */,
 				AA8885012A50BAC2000858D5 /* TabBarViewController.swift in Sources */,
 				AA0191972A4BD02B00A1089F /* PhotosTableViewController.swift in Sources */,
