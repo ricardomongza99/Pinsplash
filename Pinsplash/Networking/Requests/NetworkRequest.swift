@@ -18,7 +18,7 @@ protocol NetworkRequest: AnyObject {
 }
 
 extension NetworkRequest {
-    fileprivate func load(_ url: URL, withCompletion completion: @escaping (ModelType?) -> Void) {
+    func load(_ url: URL, withCompletion completion: @escaping (ModelType?) -> Void) {
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.setValue("Client-ID RXx8DV_H7CsbVPxG_ohHkSkU4_dZaGv5s2PzZIROFfM", forHTTPHeaderField: "Authorization")
@@ -41,46 +41,5 @@ extension NetworkRequest {
             }
         }
         task.resume()
-    }
-}
-
-
-class APIRequest<Resource: APIResource> {
-    let resource: Resource
-    
-    init(resource: Resource) {
-        self.resource = resource
-    }
-}
-
-extension APIRequest: NetworkRequest {
-    func decode(_ data: Data) -> Resource.ModelType? {
-        let decoder = JSONDecoder()
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
-        let items = try? decoder.decode(Resource.ModelType.self, from: data)
-        return items
-    }
-    
-    func execute(withCompletion completion: @escaping (Resource.ModelType?) -> Void) {
-        load(resource.url, withCompletion: completion)
-    }
-}
-
-
-class ImageRequest {
-    let url: URL
-    
-    init(url: URL) {
-        self.url = url
-    }
-}
-
-extension ImageRequest: NetworkRequest {
-    func decode(_ data: Data) -> UIImage? {
-        return UIImage(data: data)
-    }
-    
-    func execute(withCompletion completion: @escaping (UIImage?) -> Void) {
-        load(url, withCompletion: completion)
     }
 }

@@ -12,31 +12,15 @@ import Foundation
 
 protocol APIResource {
     associatedtype ModelType: Decodable
-    var methodPath: String { get }
+    var endpoint: String { get }
     var parameters: [String: String] { get }
 }
 
 extension APIResource {
     var url: URL {
-        var components = URLComponents(string: "https://api.unsplash.com/photos")!
-        components.path = methodPath
+        var components = URLComponents(string: "https://api.unsplash.com")!
+        components.path = endpoint
         components.queryItems = parameters.map{ URLQueryItem(name: $0.key, value: $0.value) }
         return components.url!
-    }
-}
-
-
-struct PhotosResource: APIResource {
-    typealias ModelType = [Photo]
-    
-    let page: Int
-    let perPage: Int
-    
-    var methodPath: String {
-        return "/photos"
-    }
-    
-    var parameters: [String : String] {
-        return ["page": String(page), "per_page": String(perPage)]
     }
 }

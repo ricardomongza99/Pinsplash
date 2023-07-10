@@ -3,4 +3,54 @@
    uuid = "C6222E34-50EC-44AB-8269-D67371205B23"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9ACBB9CD-B580-4FDA-9744-2FE7E6EE8347"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pinsplash/Services/PhotoService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "fetchPhotos(query:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "9ACBB9CD-B580-4FDA-9744-2FE7E6EE8347 - 8f49c565127001a0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Pinsplash.PhotoService.fetchPhotos(query: Swift.String, completion: (Swift.Optional&lt;Swift.Array&lt;Pinsplash.Photo&gt;&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Pinsplash"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ricardomontemayor/Projects/personal/swift/Pinsplash/Pinsplash/Services/PhotoService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "49"
+                  endingLineNumber = "49"
+                  offsetFromSymbolStart = "400">
+               </Location>
+               <Location
+                  uuid = "9ACBB9CD-B580-4FDA-9744-2FE7E6EE8347 - 731b3668558cbc8e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Array&lt;Pinsplash.Photo&gt;&gt;) -&gt; () in Pinsplash.PhotoService.fetchPhotos(query: Swift.String, completion: (Swift.Optional&lt;Swift.Array&lt;Pinsplash.Photo&gt;&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Pinsplash"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ricardomontemayor/Projects/personal/swift/Pinsplash/Pinsplash/Services/PhotoService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "49"
+                  endingLineNumber = "49"
+                  offsetFromSymbolStart = "92">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
