@@ -7,40 +7,31 @@
 
 import Foundation
 
-class PhotoService {
+class PhotoService: PhotoFetching {
+
     
     // MARK: - PROPERTIES
     
-    var useMockData: Bool
     var isLoading = false
     
     private let photosPerPage = 20
     private var currentPage = 1
     private var totalPages = 1
-
-
-    // MARK: - INITIALIZERS
-    
-    init(useMockData: Bool = false) {
-        self.useMockData = useMockData
-    }
     
     
     // MARK: - FETCH METHODS
     
-    func fetchPhotos(completion: @escaping([Photo]?) -> Void){
-        guard !isLoading else { return }
-        
-        isLoading = true
-        
-        if useMockData {
-            fetchMockData(completion: completion)
+    func fetchPhotos(query: String?, completion: @escaping ([Photo]?) -> Void) {
+        // TODO: Implement Type-Erased Wrappers for SearchPhotosResource and PhotosResource
+        if let query = query {
+            fetchPhotos(query: query, completion: completion)
         } else {
-            fetchRealData(completion: completion)
+            fetchPhotos(completion: completion)
         }
     }
     
-    func fetchPhotos(query: String, completion: @escaping([Photo]?) -> Void) {
+    
+    private func fetchPhotos(query: String, completion: @escaping([Photo]?) -> Void) {
         guard !isLoading, currentPage <= totalPages else { return }
         
         isLoading = true
@@ -63,11 +54,14 @@ class PhotoService {
         }
     }
     
-    private func fetchRealData(completion: @escaping([Photo]?) -> Void) {
+    private func fetchPhotos(completion: @escaping([Photo]?) -> Void) {
+        guard !isLoading else { return }
+        
         let resource = PhotosResource(page: currentPage, perPage: photosPerPage)
         let request = APIRequest(resource: resource)
         
-        print("Will fetch photos for page \(currentPage)")
+        isLoading = true
+
         request.execute { [weak self] photos in
             completion(photos)
             
@@ -80,23 +74,9 @@ class PhotoService {
             self?.isLoading = false
         }
     }
-    
-    private func fetchMockData(completion: @escaping([Photo]?) -> Void) {
-        guard currentPage <= 4 else {
-            completion(nil)
-            return
-        }
-        
-        let mockPhotos = TestData.getPhotos(page: currentPage)
-        print(mockPhotos.count)
-        completion(mockPhotos)
-        
-        print("✅ Mock photos fetched. Current page: \(currentPage)")
-        currentPage += 1
-        isLoading = false
-    }
-    
+
     func resetPagination() {
-        currentPage = 0
+        currentPage = 1
+        totalPages = 1
     }
 }

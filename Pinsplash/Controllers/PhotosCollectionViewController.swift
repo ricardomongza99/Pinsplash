@@ -13,7 +13,7 @@ class PhotosCollectionViewController: UIViewController {
     // MARK: - PROPERTIES
     
     private var photos: [Photo] = []
-    private var photoService = PhotoService(useMockData: true)
+    private var photoService: PhotoFetching = PhotoService()
     
     
     // MARK: - COMPONENTS
@@ -94,8 +94,6 @@ class PhotosCollectionViewController: UIViewController {
                         }
                     }
                 }
-
-            
             }
         }
     }
