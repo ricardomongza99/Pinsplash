@@ -49,6 +49,9 @@ Before you can run the app, you'll need to provide your own Unsplash API key.
 
 ### 👀 Upcoming
 - Save collections locally using Core Data
+- Unit tests
+- UI tests
+- Browse similar pins
 
 ## 👥 Contributing
 
