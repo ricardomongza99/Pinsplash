@@ -53,6 +53,9 @@ Before you can run the app, you'll need to provide your own Unsplash API key.
 - UI tests
 - Browse similar pins
 
+## Preview
+![App Preview](demo.gif)
+
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
