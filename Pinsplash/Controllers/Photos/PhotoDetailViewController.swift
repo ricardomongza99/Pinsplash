@@ -130,15 +130,16 @@ class PhotoDetailViewController: UIViewController {
         
     private lazy var saveButton: RoundButton = {
         let button = RoundButton()
-        button.addTarget(self, action: #selector(savePhoto), for: .touchUpInside)
+        button.addTarget(self, action: #selector(saveButtonPressed), for: .touchUpInside)
         button.setTitle("Save", for: .normal)
         return button
     }()
     
-    private let shareButton: UIButton = {
+    private lazy var shareButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "square.and.arrow.up"), for: .normal)
         button.setPreferredSymbolConfiguration(.init(weight: .bold), forImageIn: .normal)
+        button.addTarget(self, action: #selector(shareButtonPressed), for: .touchUpInside)
         return button
     }()
     
@@ -229,9 +230,19 @@ class PhotoDetailViewController: UIViewController {
     
     // MARK: - ACTIONS
     
-    @objc private func savePhoto() {
+    @objc private func saveButtonPressed() {
         // TODO: Save photo
     }
     
-
+    @objc private func shareButtonPressed() {
+        guard let photoUrl = URL(string: photo.urls.regular) else { return }
+        ImageLoader.shared.loadImage(url: photoUrl) { [weak self] image in
+            guard let image = image else { return }
+            DispatchQueue.main.async {
+                // TODO: Fix console logs
+                let activityViewController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+                self?.present(activityViewController, animated: true, completion: nil)
+            }
+        }
+    }
 }
