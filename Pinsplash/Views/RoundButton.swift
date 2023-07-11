@@ -58,11 +58,9 @@ class RoundButton: UIButton {
         self.clipsToBounds = true
         self.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
         
-
-
         switch type {
         case .primary:
-            self.backgroundColor = UIColor(red: 0.90, green: 0.00, blue: 0.14, alpha: 1.00)
+            self.backgroundColor = UIColor.tintColor
             self.setTitleColor(.white, for: .normal)
         case .secondary:
             self.backgroundColor = UIColor.systemGray5
