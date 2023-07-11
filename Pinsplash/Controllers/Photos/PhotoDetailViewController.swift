@@ -44,7 +44,7 @@ class PhotoDetailViewController: UIViewController {
         stackView.axis = .vertical
         stackView.spacing = 12
         stackView.isLayoutMarginsRelativeArrangement = true
-        stackView.layoutMargins = UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12)
+        stackView.layoutMargins = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
         return stackView
     }()
     
@@ -109,7 +109,7 @@ class PhotoDetailViewController: UIViewController {
     private let commentButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "bubble.left"), for: .normal)
-        button.setPreferredSymbolConfiguration(.init(weight: .bold), forImageIn: .normal)
+        button.setPreferredSymbolConfiguration(.init(pointSize: 20, weight: .bold), forImageIn: .normal)
         return button
     }()
     
@@ -138,7 +138,7 @@ class PhotoDetailViewController: UIViewController {
     private lazy var shareButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "square.and.arrow.up"), for: .normal)
-        button.setPreferredSymbolConfiguration(.init(weight: .bold), forImageIn: .normal)
+        button.setPreferredSymbolConfiguration(.init(pointSize: 20, weight: .bold), forImageIn: .normal)
         button.addTarget(self, action: #selector(shareButtonPressed), for: .touchUpInside)
         return button
     }()
@@ -216,14 +216,15 @@ class PhotoDetailViewController: UIViewController {
     }
     
     private func loadImages() {
+        // TODO: Improve concurrency when loading different quality images
         if let url = URL(string: photo.urls.small) {
             photoImageView.load(url: url)
         }
         if let url = URL(string: photo.urls.regular) {
             photoImageView.load(url: url)
         }
-        
-        if let url = URL(string: photo.user.profileImage.small) {
+
+        if let url = URL(string: photo.user.profileImage.medium) {
             userProfileImageView.load(url: url)
         }
     }
@@ -236,12 +237,15 @@ class PhotoDetailViewController: UIViewController {
     
     @objc private func shareButtonPressed() {
         guard let photoUrl = URL(string: photo.urls.regular) else { return }
+        
+        shareButton.isEnabled = false
         ImageLoader.shared.loadImage(url: photoUrl) { [weak self] image in
             guard let image = image else { return }
             DispatchQueue.main.async {
                 // TODO: Fix console logs
                 let activityViewController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
                 self?.present(activityViewController, animated: true, completion: nil)
+                self?.shareButton.isEnabled = true
             }
         }
     }
