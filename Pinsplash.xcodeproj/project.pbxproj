@@ -31,6 +31,7 @@
 		AA5B3BDA2A5CC56300B69081 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5B3BD92A5CC56300B69081 /* APIResponse.swift */; };
 		AA5B3BE22A5CCCAB00B69081 /* PhotoFetching.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5B3BE12A5CCCAB00B69081 /* PhotoFetching.swift */; };
 		AA5B3BE42A5CCCF600B69081 /* MockPhotoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5B3BE32A5CCCF600B69081 /* MockPhotoService.swift */; };
+		AA5B3BEE2A5CF61200B69081 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA5B3BED2A5CF61200B69081 /* Keys.plist */; };
 		AA7E38F92A5134DA0059FA29 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7E38F82A5134DA0059FA29 /* RoundButton.swift */; };
 		AA8884FF2A50B630000858D5 /* LoadingFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8884FE2A50B630000858D5 /* LoadingFooterView.swift */; };
 		AA8885012A50BAC2000858D5 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8885002A50BAC2000858D5 /* TabBarViewController.swift */; };
@@ -73,6 +74,7 @@
 		AA5B3BD92A5CC56300B69081 /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
 		AA5B3BE12A5CCCAB00B69081 /* PhotoFetching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoFetching.swift; sourceTree = "<group>"; };
 		AA5B3BE32A5CCCF600B69081 /* MockPhotoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPhotoService.swift; sourceTree = "<group>"; };
+		AA5B3BED2A5CF61200B69081 /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		AA7E38F82A5134DA0059FA29 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		AA8884FE2A50B630000858D5 /* LoadingFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingFooterView.swift; sourceTree = "<group>"; };
 		AA8885002A50BAC2000858D5 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				AA456F8D2A46AD440001EEDC /* Assets.xcassets */,
 				AA456F8F2A46AD440001EEDC /* LaunchScreen.storyboard */,
 				AA456F922A46AD440001EEDC /* Info.plist */,
+				AA5B3BED2A5CF61200B69081 /* Keys.plist */,
 				AAC6A50E2A48D7E4009BC93C /* Preview Content */,
 			);
 			path = Pinsplash;
@@ -346,6 +349,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA5B3BEE2A5CF61200B69081 /* Keys.plist in Resources */,
 				AA42E2232A4A2C940059D9F8 /* page3.json in Resources */,
 				AA456F912A46AD440001EEDC /* LaunchScreen.storyboard in Resources */,
 				AA456F8E2A46AD440001EEDC /* Assets.xcassets in Resources */,
