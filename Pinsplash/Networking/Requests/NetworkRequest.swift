@@ -18,10 +18,24 @@ protocol NetworkRequest: AnyObject {
 }
 
 extension NetworkRequest {
+    
+    var unsplashAPIKey: String {
+        get {
+            guard let filePath = Bundle.main.path(forResource: "Keys", ofType: ".plist") else {
+                fatalError("Couldn't find file 'Keys.plist.")
+            }
+            let plist = NSDictionary(contentsOfFile: filePath)
+            guard let value = plist?.object(forKey: "UnsplashAPIKey") as? String else {
+                fatalError("Couldn't find key 'UnsplashAPIKey' in 'Keys.plist'.")
+            }
+            return value
+        }
+    }
+    
     func load(_ url: URL, withCompletion completion: @escaping (ModelType?) -> Void) {
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
-        request.setValue("Client-ID RXx8DV_H7CsbVPxG_ohHkSkU4_dZaGv5s2PzZIROFfM", forHTTPHeaderField: "Authorization")
+        request.setValue("Client-ID \(unsplashAPIKey)", forHTTPHeaderField: "Authorization")
                 
         let task = URLSession.shared.dataTask(with: request){ data, response, error in
             if let error = error {
