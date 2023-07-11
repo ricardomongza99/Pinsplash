@@ -9,6 +9,10 @@ import UIKit
 
 class PinCollectionViewCell: UICollectionViewCell {
     
+    // MARK: - PROPERTIES
+    
+    static let reuseIdentifier = "pinCollectionViewCell"
+    
     
     // MARK: - COMPONENTS
 

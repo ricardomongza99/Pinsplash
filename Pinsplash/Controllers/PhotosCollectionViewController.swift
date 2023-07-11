@@ -23,7 +23,7 @@ class PhotosCollectionViewController: UIViewController {
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .white
-        collectionView.register(PinCollectionViewCell.self, forCellWithReuseIdentifier: "pinCell")
+        collectionView.register(PinCollectionViewCell.self, forCellWithReuseIdentifier: PinCollectionViewCell.reuseIdentifier)
         collectionView.register(LoadingFooterView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: LoadingFooterView.identifier)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
@@ -109,7 +109,7 @@ extension PhotosCollectionViewController: UICollectionViewDataSource, UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "pinCell", for: indexPath) as! PinCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PinCollectionViewCell.reuseIdentifier, for: indexPath) as! PinCollectionViewCell
         cell.configure(with: photos[indexPath.item])
         return cell
     }
