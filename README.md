@@ -1,6 +1,8 @@
 # 📌 Pinsplash
 A Pinterest-inspired iOS app for exploring stunning photos from Unsplash
 
+![App Preview](demo.gif)
+
 ## Getting Started
 
 To get started with Pinsplash, clone the repository and open the `Pinsplash.xcworkspace` file in Xcode. 
@@ -52,9 +54,6 @@ Before you can run the app, you'll need to provide your own Unsplash API key.
 - Unit tests
 - UI tests
 - Browse similar pins
-
-## Preview
-![App Preview](demo.gif)
 
 ## Contributing
 
