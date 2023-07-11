@@ -37,7 +37,7 @@ Before you can run the app, you'll need to provide your own Unsplash API key.
 - Browse popular photos from Unsplash with the familiar Pinterest layout
 - Search for photos by keyword
 - Responsive design
-- Async image loading
+- Lazy image loading
 - Custom Image Caching
 - Custom `WaterfallCollectionViewLayout` 
 - Autos sizing cells
