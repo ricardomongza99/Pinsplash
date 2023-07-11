@@ -1,15 +1,15 @@
 # 📌 Pinsplash
 A Pinterest-inspired iOS app for exploring stunning photos from Unsplash
 
-## 🚀 Getting Started
+## Getting Started
 
 To get started with Pinsplash, clone the repository and open the `Pinsplash.xcworkspace` file in Xcode. 
 
-### 📝 Prerequisites
+### Prerequisites
 
 Before you can run the app, you'll need to provide your own Unsplash API key.
 
-### 🛠️ Installation
+### Installation
 
 1. Sign up for a developer account on [Unsplash](https://unsplash.com/developers) and create a new application to get an API key.
 
@@ -32,7 +32,7 @@ Before you can run the app, you'll need to provide your own Unsplash API key.
 
 5. Build and run the app in Xcode.
 
-## 🌟 Features
+## Features
 
 - Browse popular photos from Unsplash with the familiar Pinterest layout
 - Search for photos by keyword
@@ -47,13 +47,13 @@ Before you can run the app, you'll need to provide your own Unsplash API key.
 - Network Requests and REST APIs using a Protocol-Oriented Approach
 - Image sharing
 
-### 👀 Upcoming
+### Upcoming
 - Save collections locally using Core Data
 - Unit tests
 - UI tests
 - Browse similar pins
 
-## 👥 Contributing
+## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
