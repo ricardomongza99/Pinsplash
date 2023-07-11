@@ -63,13 +63,13 @@ class PhotoService: PhotoFetching {
         isLoading = true
 
         request.execute { [weak self] photos in
-            completion(photos)
-            
-            if photos != nil {
+            if let photos = photos {
                 print("✅ Photos fetched. Current page: \(self?.currentPage ?? 0)")
                 self?.currentPage += 1
+                completion(photos)
             } else {
                 print("Couldn't fetch photos")
+                completion(nil)
             }
             self?.isLoading = false
         }

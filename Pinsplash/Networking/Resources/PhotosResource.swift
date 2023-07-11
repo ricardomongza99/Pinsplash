@@ -16,7 +16,7 @@ struct PhotosResource: APIResource {
     var endpoint: String {
         return "/photos"
     }
-    
+
     var parameters: [String : String] {
         return ["page": String(page), "per_page": String(perPage)]
     }
